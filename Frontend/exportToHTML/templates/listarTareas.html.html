@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>listarTareas.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bababa;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+listarTareas.html</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;!DOCTYPE </span><span class="s2">html</span><span class="s0">&gt;</span>
+<span class="s0">&lt;html </span><span class="s2">xmlns:th</span><span class="s3">=&quot;http://www.thymeleaf.org&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;head&gt;</span>
+  <span class="s0">&lt;meta </span><span class="s2">charset</span><span class="s3">=&quot;UTF-8&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;title&gt;</span><span class="s1">Lista de Tareas</span><span class="s0">&lt;/title&gt;</span>
+  <span class="s0">&lt;link </span><span class="s2">href</span><span class="s3">=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css&quot; </span><span class="s2">rel</span><span class="s3">=&quot;stylesheet&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;/head&gt;</span>
+<span class="s0">&lt;body </span><span class="s2">class</span><span class="s3">=&quot;container py-4&quot;</span><span class="s0">&gt;</span>
+<span class="s0">&lt;h1 </span><span class="s2">class</span><span class="s3">=&quot;mb-4&quot;</span><span class="s0">&gt;</span><span class="s1">Lista de Tareas</span><span class="s0">&lt;/h1&gt;</span>
+<span class="s0">&lt;a </span><span class="s2">href</span><span class="s3">=&quot;/tareas/crear&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-primary mb-3&quot;</span><span class="s0">&gt;</span><span class="s1">Crear nueva tarea</span><span class="s0">&lt;/a&gt;</span>
+<span class="s0">&lt;ul </span><span class="s2">class</span><span class="s3">=&quot;list-group&quot;</span><span class="s0">&gt;</span>
+  <span class="s0">&lt;li </span><span class="s2">class</span><span class="s3">=&quot;list-group-item d-flex justify-content-between align-items-center&quot; </span><span class="s2">th:each</span><span class="s3">=&quot;tarea : ${tareas}&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;div&gt;</span>
+      <span class="s0">&lt;strong </span><span class="s2">th:text</span><span class="s3">=&quot;${tarea.titulo}&quot;</span><span class="s0">&gt;&lt;/strong&gt;</span>
+
+      <span class="s0">&lt;span </span><span class="s2">class</span><span class="s3">=&quot;badge&quot; </span><span class="s2">th:classappend</span><span class="s3">=&quot;${tarea.completado} ? 'bg-success' : 'bg-warning'&quot; </span><span class="s2">th:text</span><span class="s3">=&quot;${tarea.completado ? 'Completada' : 'Pendiente'}&quot;</span><span class="s0">&gt;&lt;/span&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+    <span class="s0">&lt;div&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">th:href</span><span class="s3">=&quot;@{/tareas/editar/{id}(id=${tarea.id})}&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-sm btn-warning&quot;</span><span class="s0">&gt;</span><span class="s1">Editar</span><span class="s0">&lt;/a&gt;</span>
+      <span class="s0">&lt;a </span><span class="s2">th:href</span><span class="s3">=&quot;@{/tareas/eliminar/{id}(id=${tarea.id})}&quot; </span><span class="s2">class</span><span class="s3">=&quot;btn btn-sm btn-danger&quot;</span><span class="s0">&gt;</span><span class="s1">Eliminar</span><span class="s0">&lt;/a&gt;</span>
+    <span class="s0">&lt;/div&gt;</span>
+  <span class="s0">&lt;/li&gt;</span>
+<span class="s0">&lt;/ul&gt;</span>
+<span class="s0">&lt;/body&gt;</span>
+<span class="s0">&lt;/html&gt;</span></pre>
+</body>
+</html>
